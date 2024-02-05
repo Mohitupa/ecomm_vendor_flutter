@@ -18,8 +18,7 @@ class _SideMenuState extends State<SideMenu> {
   String _selectedMenu = MenuItemModel.menuItems[0].title;
   bool _isDarkMode = false;
 
-  void onThemeRiveIconInit(artboard) {
-  }
+  void onThemeRiveIconInit(artboard) {}
 
   void onMenuPress(MenuItemModel menu) {
     setState(() {
@@ -38,20 +37,21 @@ class _SideMenuState extends State<SideMenu> {
     return Container(
       padding: const EdgeInsets.only(top: 10, bottom: 10),
       constraints: const BoxConstraints(maxWidth: 288),
-      decoration: BoxDecoration(
-        color: const Color.fromARGB(0, 44, 41, 85),
-        image: const DecorationImage(
+      decoration: const BoxDecoration(
+        color: Color.fromARGB(0, 44, 41, 85),
+        image: DecorationImage(
           fit: BoxFit.fitHeight,
           image: AssetImage('assets/images/back.png'),
-          // opacity: 0.9,
         ),
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(30),
+          bottomRight: Radius.circular(30),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            // padding: const EdgeInsets.all(16),
             padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 16),
             child: Row(
               children: [
@@ -77,8 +77,8 @@ class _SideMenuState extends State<SideMenu> {
                     Text(
                       "Software Engineer",
                       style: TextStyle(
-                          color:
-                              const Color.fromARGB(255, 36, 42, 78).withOpacity(0.7),
+                          color: const Color.fromARGB(255, 36, 42, 78)
+                              .withOpacity(0.7),
                           fontSize: 15,
                           fontFamily: "Inter"),
                     )
@@ -178,7 +178,8 @@ class MenuButtonSection extends StatelessWidget {
             children: [
               for (var menu in menuIcons) ...[
                 Divider(
-                    color: const Color.fromARGB(255, 29, 33, 56).withOpacity(0.1),
+                    color:
+                        const Color.fromARGB(255, 29, 33, 56).withOpacity(0.1),
                     thickness: 1,
                     height: 1,
                     indent: 16,

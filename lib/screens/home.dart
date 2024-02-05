@@ -1,7 +1,10 @@
+import 'package:ecom_bg_srs/screens/category/home-category.dart';
+import 'package:ecom_bg_srs/screens/product/products.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 import '../common/search-field.dart';
+import '../common/slider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -39,66 +42,13 @@ class _HomePageState extends State<HomePage> {
     if (selectedTab == 3) {
       // content = MyProfilePage();
     }
-    return SafeArea(
-      top: true,
-      child: Scaffold(
-        body: const Padding(
-          padding: EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              SearchField(),
-            ],
-          ),
-        ),
-        bottomNavigationBar: Container(
-          decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 6, 20, 92).withOpacity(0.15),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 15.0,
-              vertical: 10.0,
-            ),
-            child: GNav(
-              padding: const EdgeInsets.all(10),
-              activeColor: Colors.white,
-              color: const Color.fromARGB(255, 6, 20, 92),
-              selectedIndex: selectedTab, // Pass the selected index
-              onTabChange: onBottomTab,
-
-              tabBackgroundColor:
-              const Color.fromARGB(255, 6, 20, 92).withOpacity(0.8),
-              gap: 8,
-              tabs: const [
-                GButton(
-                  icon: Icons.home,
-                  text: 'Home',
-                  textStyle: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.w600),
-                ),
-                GButton(
-                  icon: Icons.local_offer_outlined,
-                  text: "Offer",
-                  textStyle: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.w600),
-                ),
-                GButton(
-                  icon: Icons.shopping_cart,
-                  text: "Cart",
-                  textStyle: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.w600),
-                ),
-                GButton(
-                  icon: Icons.person_outline,
-                  text: "Account",
-                  textStyle: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.w600),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
+    return Column(
+      children: [
+        SearchField(),
+        CarouselSliderPage(),
+        CategoryListingWidget(),
+        ProductListingWidget(),
+      ],
     );
   }
 }
